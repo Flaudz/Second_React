@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Tweet from "./Tweet";
 
 function App() {
+	const [users, setUsers] = useState([
+		{ name: "Ed", message: "Hello there" },
+		{ name: "Nicolaj", message: "Whatt upppp" },
+		{ name: "Jimmy", message: "Christian er White Theme Boiiii" }
+	]);
+
 	return (
 		<div>
-			<Tweet name="Jimmy" message="Wtf" />
-			<Tweet name="Nicolaj" message="I love you<3" />
-			<Tweet name="Christian" message="Im white theme boy ;)" />
-			<Tweet name="Lucas" message="Year" />
+			{users.map((user) => (
+				<Tweet name={user.name} message={user.message} />
+			))}
 		</div>
 	);
 }
